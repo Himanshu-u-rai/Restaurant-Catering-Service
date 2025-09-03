@@ -27,7 +27,12 @@
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#contact" class="nav-link">Visit Us</a>
       </div>
-      <button class="menu-toggle">
+      <button
+        class="menu-toggle"
+        aria-label="Toggle navigation"
+        aria-controls="mobileNav"
+        aria-expanded="false"
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -35,7 +40,7 @@
     </nav>
 
     <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav-menu">
+    <div class="mobile-nav-menu" id="mobileNav" role="menu" aria-hidden="true">
       <div class="mobile-nav-links">
         <a href="#home" class="mobile-nav-link active">Home</a>
         <a href="#menu" class="mobile-nav-link">Menu</a>
@@ -43,6 +48,9 @@
         <a href="#contact" class="mobile-nav-link">Visit Us</a>
       </div>
     </div>
+
+    <!-- Dim overlay for mobile menu -->
+    <div class="nav-overlay" aria-hidden="true"></div>
 
     <!-- Immersive Hero Section -->
     <section id="home" class="hero-modern">
@@ -220,145 +228,669 @@
         </div>
 
         <div class="menu-filter-modern">
-          <button class="filter-btn active" data-category="all">
-            All Favorites
+          <button class="filter-btn active" data-category="all">All</button>
+          <button class="filter-btn" data-category="hot-beverages">
+            Hot Beverages
           </button>
-          <button class="filter-btn" data-category="beverages">
-            Beverages
+          <button class="filter-btn" data-category="cold-beverages">
+            Cold Beverages
           </button>
-          <button class="filter-btn" data-category="mains">Main Dishes</button>
-          <button class="filter-btn" data-category="snacks">Street Food</button>
-          <button class="filter-btn" data-category="desserts">Desserts</button>
+          <button class="filter-btn" data-category="snacks">
+            Snacks & Quick Bites
+          </button>
+          <button class="filter-btn" data-category="light-eats">
+            Light Eats & Specials
+          </button>
+          <button class="filter-btn" data-category="desserts">
+            Desserts & Treats
+          </button>
         </div>
 
-        <div class="menu-grid-modern">
-          <!-- Beverage Items -->
-          <div class="menu-item-modern" data-category="beverages">
+        <div class="menu-grid-modern menu-density-compact image-only-grid">
+          <!-- Hot Beverages -->
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
             <div class="item-image">
               <img
-                src="https://picsum.photos/300/300?random=20"
+                src="https://picsum.photos/600/800?random=101"
                 alt="Masala Chai"
               />
-              <div class="item-badge">Popular</div>
-            </div>
-            <div class="item-content">
-              <div class="item-header">
-                <h3>Signature Masala Chai</h3>
-                <span class="item-price">₹45</span>
+              <div class="item-overlay">
+                <h3>Masala Chai</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Classic</span
+                  ><span class="meta-tag">Spiced</span>
+                </div>
               </div>
-              <p class="item-description">
-                Our grandmother's secret blend of cardamom, ginger, and love
-              </p>
-              <div class="item-meta">
-                <span class="meta-tag">Spicy</span>
-                <span class="meta-tag">Traditional</span>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=102"
+                alt="Filter Coffee"
+              />
+              <div class="item-overlay">
+                <h3>Filter Coffee</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Strong</span
+                  ><span class="meta-tag">Aromatic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=103"
+                alt="Cappuccino"
+              />
+              <div class="item-overlay">
+                <h3>Cappuccino</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Foamy</span
+                  ><span class="meta-tag">Coffee</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
+            <div class="item-image">
+              <img src="https://picsum.photos/600/800?random=104" alt="Latte" />
+              <div class="item-overlay">
+                <h3>Latte</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Mild</span
+                  ><span class="meta-tag">Creamy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=105"
+                alt="Espresso"
+              />
+              <div class="item-overlay">
+                <h3>Espresso</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Intense</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
+            <div class="item-image">
+              <img src="https://picsum.photos/600/800?random=106" alt="Mocha" />
+              <div class="item-overlay">
+                <h3>Mocha</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Rich</span
+                  ><span class="meta-tag">Chocolate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=107"
+                alt="Hot Chocolate"
+              />
+              <div class="item-overlay">
+                <h3>Hot Chocolate</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Comfort</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="hot-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=108"
+                alt="Green Tea"
+              />
+              <div class="item-overlay">
+                <h3>Green Tea</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Light</span
+                  ><span class="meta-tag">Herbal</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="menu-item-modern" data-category="beverages">
+          <!-- Cold Beverages -->
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="cold-beverages"
+          >
             <div class="item-image">
               <img
-                src="https://picsum.photos/300/300?random=21"
+                src="https://picsum.photos/600/800?random=109"
                 alt="Cold Coffee"
               />
-            </div>
-            <div class="item-content">
-              <div class="item-header">
-                <h3>Iced Coffee Delight</h3>
-                <span class="item-price">₹85</span>
-              </div>
-              <p class="item-description">
-                Smooth cold brew with a hint of cardamom and vanilla
-              </p>
-              <div class="item-meta">
-                <span class="meta-tag">Cold</span>
-                <span class="meta-tag">Refreshing</span>
+              <div class="item-overlay">
+                <h3>Cold Coffee</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Chilled</span>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Main Dishes -->
-          <div class="menu-item-modern" data-category="mains">
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="cold-beverages"
+          >
             <div class="item-image">
               <img
-                src="https://picsum.photos/300/300?random=22"
+                src="https://picsum.photos/600/800?random=110"
+                alt="Iced Tea"
+              />
+              <div class="item-overlay">
+                <h3>Iced Tea</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Refreshing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="cold-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=111"
+                alt="Lemon Soda"
+              />
+              <div class="item-overlay">
+                <h3>Lemon Soda</h3>
+                <div class="item-meta"><span class="meta-tag">Zesty</span></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="cold-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=112"
+                alt="Smoothies"
+              />
+              <div class="item-overlay">
+                <h3>Smoothies</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Fruity</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="cold-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=113"
+                alt="Milkshakes"
+              />
+              <div class="item-overlay">
+                <h3>Milkshakes</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Creamy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="cold-beverages"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=114"
+                alt="Fresh Juices"
+              />
+              <div class="item-overlay">
+                <h3>Fresh Juices</h3>
+                <div class="item-meta"><span class="meta-tag">Fresh</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Snacks & Quick Bites -->
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="snacks"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=115"
+                alt="Veg Sandwich"
+              />
+              <div class="item-overlay">
+                <h3>Veg Sandwich</h3>
+                <div class="item-meta"><span class="meta-tag">Light</span></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="snacks"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=116"
+                alt="Paneer Sandwich"
+              />
+              <div class="item-overlay">
+                <h3>Paneer Sandwich</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Protein</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="snacks"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=117"
+                alt="Toasties"
+              />
+              <div class="item-overlay">
+                <h3>Toasties</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Cheesy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="snacks"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=118"
+                alt="Garlic Bread"
+              />
+              <div class="item-overlay">
+                <h3>Garlic Bread</h3>
+                <div class="item-meta"><span class="meta-tag">Baked</span></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="snacks"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=119"
+                alt="Croissant"
+              />
+              <div class="item-overlay">
+                <h3>Croissant</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Buttery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="snacks"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=120"
+                alt="Veg Puff"
+              />
+              <div class="item-overlay">
+                <h3>Veg Puff</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Savory</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="snacks"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=121"
+                alt="Paneer Puff"
+              />
+              <div class="item-overlay">
+                <h3>Paneer Puff</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Spiced</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item-modern image-only" data-category="snacks">
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=122"
+                alt="Samosa"
+              />
+              <div class="item-overlay">
+                <h3>Samosa</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Crispy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item-modern image-only" data-category="snacks">
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=123"
+                alt="Mini Kachori"
+              />
+              <div class="item-overlay">
+                <h3>Mini Kachori</h3>
+                <div class="item-meta"><span class="meta-tag">Snack</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item-modern image-only" data-category="snacks">
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=124"
+                alt="French Fries"
+              />
+              <div class="item-overlay">
+                <h3>French Fries</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Crispy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item-modern image-only" data-category="snacks">
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=125"
+                alt="Nachos"
+              />
+              <div class="item-overlay">
+                <h3>Nachos</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Cheesy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Light Eats & Specials -->
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="light-eats"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=126"
                 alt="Pav Bhaji"
               />
-              <div class="item-badge">Chef's Special</div>
-            </div>
-            <div class="item-content">
-              <div class="item-header">
-                <h3>Mumbai Street Pav Bhaji</h3>
-                <span class="item-price">₹120</span>
+              <div class="item-overlay">
+                <h3>Pav Bhaji</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Street</span>
+                </div>
               </div>
-              <p class="item-description">
-                Authentic street-style bhaji with buttered pav and love
-              </p>
-              <div class="item-meta">
-                <span class="meta-tag">Spicy</span>
-                <span class="meta-tag">Comfort Food</span>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="light-eats"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=127"
+                alt="Vada Pav"
+              />
+              <div class="item-overlay">
+                <h3>Vada Pav</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Iconic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="light-eats"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=128"
+                alt="Bun Maska"
+              />
+              <div class="item-overlay">
+                <h3>Bun Maska</h3>
+                <div class="item-meta"><span class="meta-tag">Soft</span></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="light-eats"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=129"
+                alt="Keema Pav"
+              />
+              <div class="item-overlay">
+                <h3>Keema Pav</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Hearty</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="light-eats"
+          >
+            <div class="item-image">
+              <img src="https://picsum.photos/600/800?random=130" alt="Maggi" />
+              <div class="item-overlay">
+                <h3>Maggi</h3>
+                <div class="item-meta"><span class="meta-tag">Quick</span></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="light-eats"
+          >
+            <div class="item-image">
+              <img src="https://picsum.photos/600/800?random=131" alt="Momos" />
+              <div class="item-overlay">
+                <h3>Momos</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Steamed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="light-eats"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=132"
+                alt="Mini Pizzas"
+              />
+              <div class="item-overlay">
+                <h3>Mini Pizzas</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Cheesy</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="menu-item-modern" data-category="snacks">
+          <!-- Desserts & Sweet Treats -->
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="desserts"
+          >
             <div class="item-image">
-              <img src="https://picsum.photos/300/300?random=23" alt="Samosa" />
-            </div>
-            <div class="item-content">
-              <div class="item-header">
-                <h3>Crispy Samosas (2 pcs)</h3>
-                <span class="item-price">₹35</span>
-              </div>
-              <p class="item-description">
-                Golden triangles filled with spiced potatoes and peas
-              </p>
-              <div class="item-meta">
-                <span class="meta-tag">Crispy</span>
-                <span class="meta-tag">Vegan</span>
+              <img
+                src="https://picsum.photos/600/800?random=133"
+                alt="Brownie"
+              />
+              <div class="item-overlay">
+                <h3>Brownie</h3>
+                <div class="item-meta"><span class="meta-tag">Rich</span></div>
               </div>
             </div>
           </div>
-
-          <div class="menu-item-modern" data-category="desserts">
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="desserts"
+          >
             <div class="item-image">
-              <img src="https://picsum.photos/300/300?random=24" alt="Kulfi" />
-            </div>
-            <div class="item-content">
-              <div class="item-header">
-                <h3>Malai Kulfi Falooda</h3>
-                <span class="item-price">₹95</span>
-              </div>
-              <p class="item-description">
-                Creamy traditional ice cream with vermicelli and rose syrup
-              </p>
-              <div class="item-meta">
-                <span class="meta-tag">Sweet</span>
-                <span class="meta-tag">Traditional</span>
+              <img
+                src="https://picsum.photos/600/800?random=134"
+                alt="Waffles"
+              />
+              <div class="item-overlay">
+                <h3>Waffles</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Crispy</span>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="menu-item-modern" data-category="beverages">
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="desserts"
+          >
             <div class="item-image">
-              <img src="https://picsum.photos/300/300?random=25" alt="Lassi" />
-            </div>
-            <div class="item-content">
-              <div class="item-header">
-                <h3>Mango Lassi</h3>
-                <span class="item-price">₹75</span>
+              <img
+                src="https://picsum.photos/600/800?random=135"
+                alt="Pancakes"
+              />
+              <div class="item-overlay">
+                <h3>Pancakes</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Fluffy</span>
+                </div>
               </div>
-              <p class="item-description">
-                Thick, creamy yogurt drink with fresh mango pulp
-              </p>
-              <div class="item-meta">
-                <span class="meta-tag">Fresh</span>
-                <span class="meta-tag">Probiotic</span>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="desserts"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=136"
+                alt="Pastries"
+              />
+              <div class="item-overlay">
+                <h3>Pastries</h3>
+                <div class="item-meta"><span class="meta-tag">Baked</span></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="desserts"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=137"
+                alt="Doughnuts"
+              />
+              <div class="item-overlay">
+                <h3>Doughnuts</h3>
+                <div class="item-meta"><span class="meta-tag">Sweet</span></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="desserts"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=138"
+                alt="Cookies"
+              />
+              <div class="item-overlay">
+                <h3>Cookies</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Crunchy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="menu-item-modern image-only uiverse"
+            data-category="desserts"
+          >
+            <div class="item-image">
+              <img
+                src="https://picsum.photos/600/800?random=139"
+                alt="Kulfi Falooda"
+              />
+              <div class="item-overlay">
+                <h3>Kulfi Falooda</h3>
+                <div class="item-meta">
+                  <span class="meta-tag">Traditional</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <button
+          id="showMoreMenu"
+          class="compact-more-btn"
+          aria-expanded="false"
+          aria-controls="menu"
+          type="button"
+        >
+          Show More
+        </button>
 
         <div class="menu-cta">
           <button class="btn-modern primary large">
