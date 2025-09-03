@@ -23,17 +23,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Navigation functionality
 function initializeNavigation() {
-  const navLinks = document.querySelectorAll(".nav-link");
+  const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
 
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
 
-      // Remove active class from all links
-      navLinks.forEach((l) => l.classList.remove("active"));
+      // Remove active class from all links (both desktop and mobile)
+      document
+        .querySelectorAll(".nav-link, .mobile-nav-link")
+        .forEach((l) => l.classList.remove("active"));
 
       // Add active class to clicked link
       this.classList.add("active");
+
+      // Also update the corresponding link in the other navigation
+      const href = this.getAttribute("href");
+      const correspondingLink = document.querySelector(
+        this.classList.contains("nav-link")
+          ? `.mobile-nav-link[href="${href}"]`
+          : `.nav-link[href="${href}"]`
+      );
+      if (correspondingLink) {
+        correspondingLink.classList.add("active");
+      }
 
       // Smooth scroll to target section
       const targetId = this.getAttribute("href");
@@ -55,7 +68,7 @@ function initializeNavigation() {
 // Update active navigation link based on scroll position
 function updateActiveNavLink() {
   const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-link");
+  const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
 
   let currentSection = "";
 
@@ -151,12 +164,32 @@ function initializeAnimations() {
 // Mobile menu toggle
 function initializeMobileMenu() {
   const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  const mobileNavMenu = document.querySelector(".mobile-nav-menu");
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
-  if (menuToggle) {
+  if (menuToggle && mobileNavMenu) {
     menuToggle.addEventListener("click", function () {
       this.classList.toggle("active");
-      navLinks.classList.toggle("active");
+      mobileNavMenu.classList.toggle("active");
+    });
+
+    // Close mobile menu when clicking on a link
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        menuToggle.classList.remove("active");
+        mobileNavMenu.classList.remove("active");
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener("click", function (event) {
+      if (
+        !menuToggle.contains(event.target) &&
+        !mobileNavMenu.contains(event.target)
+      ) {
+        menuToggle.classList.remove("active");
+        mobileNavMenu.classList.remove("active");
+      }
     });
   }
 }
@@ -251,49 +284,10 @@ window.addEventListener("load", function () {
   // Animate hero elements
   const heroElements = document.querySelectorAll(".hero-content-modern > *");
   heroElements.forEach((element, index) => {
-    element.classList.add("fade-in", `stagger-${index + 1}`);
+    element.classList.add("fade-in");
+    element.style.animationDelay = `${index * 0.1}s`;
   });
 });
-
-// Contact form handling (if needed)
-function handleContactForm() {
-  const contactForm = document.querySelector("#contact-form");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Add your form handling logic here
-      const formData = new FormData(this);
-
-      // Show success message
-      showNotification(
-        "Thank you for your message! We'll get back to you soon.",
-        "success"
-      );
-    });
-  }
-}
-
-// Notification system
-function showNotification(message, type = "info") {
-  const notification = document.createElement("div");
-  notification.className = `notification ${type}`;
-  notification.textContent = message;
-
-  document.body.appendChild(notification);
-
-  setTimeout(() => {
-    notification.classList.add("show");
-  }, 100);
-
-  setTimeout(() => {
-    notification.classList.remove("show");
-    setTimeout(() => {
-      document.body.removeChild(notification);
-    }, 300);
-  }, 3000);
-}
 
 // Image lazy loading fallback
 function initializeImageLoading() {
